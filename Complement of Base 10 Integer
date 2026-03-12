@@ -1,0 +1,28 @@
+// The complement of an integer is the integer you get when you flip all the 0's to 1's and all the 1's to 0's in its binary representation.
+
+// For example, The integer 5 is "101" in binary and its complement is "010" which is the integer 2.
+// Given an integer n, return its complement.
+
+
+Solution:
+class Solution {
+    public int bitwiseComplement(int n) {
+        //fetch the binary code of n
+        String binary = Integer.toBinaryString(n);
+        //System.out.println(binary);
+        String temp ="";
+        //do complement
+        for(char c:binary.toCharArray()){
+            if(c == '1'){
+                temp=temp+'0';
+            }
+            if(c=='0'){
+                temp = temp+'1';
+            }
+        }
+        //convert the new binary to decimal
+        int ans = Integer.parseInt(temp,2);
+        // return the new decimal
+        return ans;
+    }
+}
